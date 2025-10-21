@@ -40,7 +40,7 @@ jobs:
             -r /app -o /tmp/sbom.json -t ${{ inputs.src_type }} \
             --profile ${{ inputs.src_profile }} --json-pretty
         
-      - name: Scan SBOM with trivy
+      - name:  SBOM with trivy
         run: |
             docker run --rm -v .:/app:rw -t docker.io/aquasec/trivy:latest fs /app --format "cyclonedx" --output /app/trivy-sbom-from-src.json 
 
